@@ -1,1 +1,8 @@
-<p>button works!</p>
+<button
+  (click)="handleClick()"
+  [ngStyle]="{ 'background-color': backgroundColor, color: color }"
+  class="py-2 px-4 rounded shadow hover:scale-105 transition-transform duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+  [disabled]="disabled"
+>
+  {{ text }}
+</button>

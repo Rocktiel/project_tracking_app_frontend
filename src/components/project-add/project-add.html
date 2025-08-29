@@ -4,13 +4,13 @@
   <form>
     <div class="mb-2">
       <label class="block mb-1">Proje Adı</label>
-      <input [(ngModel)]="name" name="name" class="border p-2 w-full rounded" required />
+      <input [(ngModel)]="projectName" name="name" class="border p-2 w-full rounded" required />
     </div>
 
     <div class="mb-2">
       <label class="block mb-1">Açıklama</label>
       <textarea
-        [(ngModel)]="description"
+        [(ngModel)]="projectDescription"
         name="description"
         class="border p-2 w-full rounded"
       ></textarea>
@@ -20,7 +20,7 @@
       text="Projeyi Ekle"
       backgroundColor="#10B981"
       color="#FFFFFF"
-      [disabled]="!name || isAdding()"
+      [disabled]="!projectName || isAdding()"
       (onClick)="addProject()"
     ></app-button>
   </form>

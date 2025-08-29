@@ -1,1 +1,25 @@
-<p>task-add works!</p>
+<div class="p-4 bg-gray-800 rounded-md shadow-md">
+  <h2 class="text-3xl font-bold mb-4 text-white">Yeni Görev Ekle</h2>
+
+  <form>
+    <div class="mb-2">
+      <label class="block mb-1 text-white">Görev Başlığı</label>
+      <input
+        [(ngModel)]="taskTitle"
+        name="name"
+        class="border border-white text-white p-2 w-full rounded"
+        required
+      />
+    </div>
+
+    <app-button
+      text="Görevi Ekle"
+      backgroundColor="#10B981"
+      color="#FFFFFF"
+      [disabled]="!taskTitle || isAdding()"
+      (onClick)="createTask()"
+    ></app-button>
+  </form>
+
+  <p *ngIf="message()" class="mt-2 text-green-600">{{ message() }}</p>
+</div>

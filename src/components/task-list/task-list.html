@@ -7,7 +7,7 @@
     *ngFor="let task of tasks()"
     [ngClass]="{
       'bg-green-500': task.isCompleted,
-      'bg-red-600': !task.isCompleted
+      'bg-red-500': !task.isCompleted
     }"
     class="p-4 rounded shadow flex items-center justify-between mx-auto w-2xl"
   >
@@ -20,11 +20,18 @@
         <app-button
           *ngIf="!task.isCompleted"
           text="Görevi Tamamla"
-          [backgroundColor]="task.isCompleted ? '#10B981' : '#EF4444'"
+          backgroundColor="#10B981"
           color="#FFFFFF"
           (onClick)="toggleCompletion(task)"
+        ></app-button>
+        <app-button
+          text="Görevi Sil"
+          backgroundColor="#EF4444"
+          color="#FFFFFF"
+          (onClick)="deleteTask(task.id)"
         ></app-button>
       </label>
     </div>
   </div>
+  <app-task-add [projectId]="projectId" (taskAdded)="loadTasks()"></app-task-add>
 </div>

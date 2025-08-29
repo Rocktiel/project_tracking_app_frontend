@@ -5,6 +5,7 @@ import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { Task } from '../../models/task.model';
 import { TaskListComponent } from '../task-list/task-list';
+import { TaskAddComponent } from '../task-add/task-add';
 
 @Component({
   selector: 'app-project-detail-page',

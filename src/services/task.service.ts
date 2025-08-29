@@ -25,8 +25,8 @@ export class TaskService {
     return this.http.delete<Task>(`${this.apiUrl}/${id}`);
   }
 
-  updateIsCompleted(id: number, isCompleted: boolean): Observable<Task> {
-    return this.http.patch<Task>(`${this.apiUrl}/${id}`, { isCompleted });
+  updateIsCompleted(id: number): Observable<Task> {
+    return this.http.patch<Task>(`${this.apiUrl}/${id}`, {}); // body boş bırakılıyor
   }
 
   getTasksByProjectId(projectId: number): Observable<Task[]> {

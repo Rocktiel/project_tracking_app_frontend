@@ -1,0 +1,30 @@
+<div *ngIf="isLoading()">Görevler yükleniyor...</div>
+<div *ngIf="error()">{{ error() }}</div>
+
+<div class="space-y-2 bg-gray-600 w-full p-4 rounded" *ngIf="!isLoading() && !error()">
+  <h1 class="text-3xl font-bold text-white">Görevler</h1>
+  <div
+    *ngFor="let task of tasks()"
+    [ngClass]="{
+      'bg-green-500': task.isCompleted,
+      'bg-red-600': !task.isCompleted
+    }"
+    class="p-4 rounded shadow flex items-center justify-between mx-auto w-2xl"
+  >
+    <div>
+      <p class="font-semibold">{{ task.title }}</p>
+    </div>
+
+    <div>
+      <label class="flex items-center gap-2">
+        <app-button
+          *ngIf="!task.isCompleted"
+          text="Görevi Tamamla"
+          [backgroundColor]="task.isCompleted ? '#10B981' : '#EF4444'"
+          color="#FFFFFF"
+          (onClick)="toggleCompletion(task)"
+        ></app-button>
+      </label>
+    </div>
+  </div>
+</div>

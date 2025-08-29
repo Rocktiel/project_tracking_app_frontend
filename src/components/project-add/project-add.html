@@ -1,1 +1,29 @@
-<p>project-add works!</p>
+<div class="p-4 bg-gray-800 rounded-md shadow-md">
+  <h2 class="text-3xl font-bold mb-4">Yeni Proje Ekle</h2>
+
+  <form>
+    <div class="mb-2">
+      <label class="block mb-1">Proje Adı</label>
+      <input [(ngModel)]="name" name="name" class="border p-2 w-full rounded" required />
+    </div>
+
+    <div class="mb-2">
+      <label class="block mb-1">Açıklama</label>
+      <textarea
+        [(ngModel)]="description"
+        name="description"
+        class="border p-2 w-full rounded"
+      ></textarea>
+    </div>
+
+    <app-button
+      text="Projeyi Ekle"
+      backgroundColor="#10B981"
+      color="#FFFFFF"
+      [disabled]="!name || isAdding()"
+      (onClick)="addProject()"
+    ></app-button>
+  </form>
+
+  <p *ngIf="message()" class="mt-2 text-green-600">{{ message() }}</p>
+</div>

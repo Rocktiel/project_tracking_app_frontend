@@ -1,20 +1,17 @@
 <div class="space-y-4" *ngIf="projects?.length; else noProjects">
-  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Mevcut Projeler</h2>
+  <h2 class="text-xl font-semibold text-gray-200">Mevcut Projeler</h2>
 
   <div
-    *ngFor="let project of projects; trackBy: trackById"
-    class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+    *ngFor="let project of projects"
+    class="bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
   >
-    <h3 class="text-lg font-bold text-gray-900 dark:text-white">{{ project.name }}</h3>
+    <h3 class="text-lg font-bold text-white">{{ project.name }}</h3>
 
-    <p
-      *ngIf="project.description; else noDescription"
-      class="text-sm text-gray-600 dark:text-gray-300 mt-1"
-    >
+    <p *ngIf="project.description; else noDescription" class="text-sm text-gray-300 mt-1">
       {{ project.description }}
     </p>
     <ng-template #noDescription>
-      <p class="text-sm italic text-gray-500 dark:text-gray-400 mt-1">Açıklama mevcut değil.</p>
+      <p class="text-sm italic text-gray-400 mt-1">Açıklama mevcut değil.</p>
     </ng-template>
 
     <div class="mt-2">
@@ -36,7 +33,5 @@
 </div>
 
 <ng-template #noProjects>
-  <div class="text-center text-gray-500 dark:text-gray-400 py-10">
-    Projeler henüz yüklenmedi veya liste boş.
-  </div>
+  <div class="text-center text-gray-400 py-10">Proje yok.</div>
 </ng-template>

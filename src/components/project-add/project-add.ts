@@ -39,7 +39,6 @@ export class ProjectAddComponent {
           this.isAdding.set(false);
         },
         error: (err) => {
-          console.error(err);
           this.message.set('Proje eklenemedi.');
           this.isAdding.set(false);
         },

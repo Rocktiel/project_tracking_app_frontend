@@ -7,5 +7,8 @@ export const routes: Routes = [
     path: '',
     component: ProjectListPage,
   },
-  { path: 'project/:id', component: ProjectDetailPage },
+  {
+    path: 'project/:id',
+    component: ProjectDetailPage,
+  },
 ];

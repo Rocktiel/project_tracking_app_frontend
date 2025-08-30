@@ -3,6 +3,9 @@
 
 <div class="space-y-2 bg-gray-600 w-full p-4 rounded" *ngIf="!isLoading() && !error()">
   <h1 class="text-3xl font-bold text-white">Görevler</h1>
+  <div *ngIf="tasks().length === 0" class="text-gray-300 my-6">
+    Bu proje için henüz görev yok.Aşağıdan yeni bir görev ekleyebilirisiniz.
+  </div>
   <div
     *ngFor="let task of tasks()"
     [ngClass]="{

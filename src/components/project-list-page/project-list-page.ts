@@ -19,10 +19,12 @@ export class ProjectListPage {
   isLoading = signal(false);
   error = signal<string | null>(null);
 
+  // Sayfa yüklendiğinde projeleri al
   ngOnInit() {
     this.fetchProjects();
   }
 
+  // Projeleri çekiyoruz
   fetchProjects() {
     this.isLoading.set(true);
     this.error.set(null);
@@ -31,8 +33,7 @@ export class ProjectListPage {
         this.projects.set(data);
         this.isLoading.set(false);
       },
-      error: (err) => {
-        console.error('Failed to fetch projects', err);
+      error: () => {
         this.error.set('Proje listesi alınamadı. Backend sunucusunun çalıştığından emin olun.');
         this.isLoading.set(false);
       },

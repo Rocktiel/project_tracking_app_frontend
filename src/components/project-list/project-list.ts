@@ -20,9 +20,6 @@ export class ProjectListComponent {
   error = signal<string | null>(null);
   private router = inject(Router);
   private projectService = inject(ProjectService);
-  trackById(index: number, project: Project) {
-    return project.id;
-  }
 
   deleteProject(id: number) {
     this.isLoading.set(true);
